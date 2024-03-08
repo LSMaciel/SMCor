@@ -1,0 +1,1041 @@
+:root {
+    --color--primaria: #38645B;
+    --color--secundaria: #D8930D;
+    --color--titulo: #1F2025;
+    --color-text: #72737A;
+    --color--background: #EEEFF5;
+    --color--background--secundario: #D9D9D9;
+    --color--background--dark: #191919;
+    --color--white: #fff;
+    --color--branco-opacitidade: rgba(76, 105, 99, 0.4);
+    --color--sobra--card: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.685));
+    --color--sobra--card2: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.966));
+    --color--sombra: #19191925;
+    --color-linhas: #D9D9D9;
+
+    --box-shadow: 0 0 0.8rem var(--color--sombra);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    background-color: var(--color--background);
+
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 300ms ease;
+    background-color: var(--color--titulo);
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color--titulo);
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color--titulo);
+    margin-bottom: 2rem;
+}
+
+p {
+    color: var(--color-text);
+}
+
+.container {
+    padding: 4rem 8rem;
+    width: 100%;
+}
+
+.efeitobtn {
+    display: flex;
+
+}
+
+.btn-primario {
+    background-color: var(--color--primaria);
+    padding: 1rem 4rem;
+    border-radius: 30px;
+    box-shadow: 0px 1px 6px rgb(56, 100, 91, 0.4);
+    margin: 2rem 0;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn-primario span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color--white);
+    position: relative;
+    overflow: hidden;
+}
+.btn-primario-form{
+    background-color: var(--color--primaria);
+    color: var(--color--white);
+    width: 100%;
+    padding: 1rem 4rem;
+    border-radius: 30px;
+    box-shadow: 0px 1px 6px rgb(56, 100, 91, 0.4);
+    width: 100%;
+    text-align: center;
+    transition: .4s;
+}
+.btn-primario-form:hover{
+    background-color: var(--color--secundaria);
+}
+.btn-primario::before {
+    content: '';
+    background-color: var(--color--secundaria);
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: var(--eixoY);
+    left: var(--eixoX);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width .8s, height .8s;
+}
+
+.btn-primario:hover::before {
+    width: 1000px;
+    height: 1000px;
+}
+
+
+.card {
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: none;
+}
+
+input, select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color--primaria);
+    border-radius: 8px;
+    background-color: transparent;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+input:hover,
+input:focus,
+input:valid,
+select:hover,
+select:focus,
+select:valid {
+    border: 1px solid var(--color--secundaria);
+    box-shadow: 0 0 0.2rem var(--color--secundaria);
+}
+
+/*----- Incio nav -----*/
+nav {
+    padding: 2rem 2rem;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    z-index: 9999;
+    transition: 0.4s;
+}
+
+nav.ativo {
+    background-color: var(--color--white);
+    box-shadow: 0px 1px 6px rgba(8, 10, 10, 0.4);
+    padding: 1rem 2rem;
+}
+
+nav.ativo .btn-contato-topo {
+    background-color: var(--color--primaria);
+}
+
+.ul-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+.ul-menu a {
+    color: var(--color--titulo);
+    font-weight: 500;
+    transition: .3s;
+}
+
+.ul-menu a:hover {
+    color: var(--color--secundaria);
+}
+
+.ul-menu .ativo {
+    color: var(--color--secundaria);
+}
+
+
+.menu-lista {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding-right: 4rem;
+}
+
+
+.btn-contato-topo {
+    border-radius: 30px;
+    padding: 1rem;
+    border: 1px solid;
+    border-color: var(--color--white);
+    background-color: var(--color--branco-opacitidade);
+    color: var(--color--white);
+    backdrop-filter: blur(20px);
+    
+}
+
+
+
+
+/*----- Incio hero -----*/
+.hero-topo {
+    padding-top: 6rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.hero-interno{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.texto-hero {
+    margin-top: 3rem;
+    margin-right: 4rem;
+    max-width: 450px;
+}
+
+.texto-hero h1 {
+    margin-bottom: 2rem;
+}
+
+.texto-hero h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 150%;
+}
+
+.imagem-hero {
+    position: relative;
+    max-width: 100%;
+    
+}
+
+.imagem-hero img {
+    width: 38rem;
+    height: 38rem;
+    border-radius: 8px;
+    position: absolute;
+    top: -8.6rem;
+    right: -4rem;
+    object-fit: cover;
+    
+}
+
+/*----- Nossos Produtos -----*/
+
+.nossos-produtos .container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+}
+
+.txt-produtos {
+    text-align: right;
+    margin-right: 3rem;
+}
+
+.txt-produtos h2 {
+    margin-bottom: 1rem;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.cards-produtos {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    max-height: 380px;
+    text-align: left;
+    margin: auto;
+    
+}
+
+.cards-produtos .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    max-height: 380px;
+    overflow: hidden;
+}
+
+
+.cards-produtos .card .texto-card {
+    position: absolute;
+    padding: 1rem;
+    color: var(--color--white);
+    bottom: 0;
+    z-index: 2;
+    max-height: 380px;
+}
+
+.texto-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.texto-card p {
+    color: var(--color--white);
+}
+
+.cards-produtos .card .sombra {
+    position: absolute;
+    background: var(--color--sobra--card);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+.cards-produtos .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    z-index: -2;
+    max-height: 380px;
+    transition: all .4s;
+}
+
+.cards-produtos .card:hover img{
+    transform: scale(1.2);
+}
+
+
+/*----- Nossos parceiros  -----*/
+
+.parceiros .container{
+    padding: 0 6rem;
+    padding-bottom: 4rem;
+}
+
+.logo-parceiros {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-parceiros img {
+    max-width: 200px;
+    
+}
+
+/*----- Como funciona  -----*/
+.como-funciona .container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-bottom: 4rem;
+}
+
+.imagem-como-funciona {
+    position: relative;
+}
+
+
+.Tabela-funciona caption {
+    text-align: left;
+}
+
+.Tabela-funciona caption h3 {
+    font-weight: 600;
+}
+
+.imagem-como-funciona img {
+    width: 38rem;
+    height: 58rem;
+    border-radius: 8px;
+    top: -7rem;
+    right: -4rem;
+    position: absolute;
+    object-fit: cover;
+}
+
+
+.principal {
+    border-left: 2px solid var(--color-linhas);
+    transition: .3s;
+}
+
+.Tabela-funciona tr:hover .principal {
+    border-left: 2px solid var(--color--secundaria);
+    color: var(--color--secundaria);
+}
+
+.Tabela-funciona tr:hover .explicativo p{
+    font-weight: 600;
+    
+}
+.Tabela-funciona .principal {
+    padding: 0 2rem;
+    align-items: center;
+    width: 20%;
+}
+
+.principal h2 {
+    font-weight: 600;
+}
+
+.Tabela-funciona .explicativo {
+    border-bottom: 1px solid var(--color-linhas);
+    padding: 2rem 0;
+    padding-right: 2rem;
+    width: 100%;
+    transition: .4s;
+}
+
+.tabela-funciona-interno{
+    padding-left: 2rem;
+    display: flex;
+}
+
+
+.dados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.dados .resultados img{
+    transition: transform .4s;
+}
+
+.dados p {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color--titulo);
+    line-height: 100%;
+}
+.dados .resultados:hover img{
+    transform: scale(1.2);
+}
+/*----- porque contratar seguro  -----*/
+/*.porque-seguro {
+    background-color: var(--color--background--secundario);
+}-*/
+
+.porque-seguro .container {
+   padding: 4rem 4rem;
+
+}
+.fundo-seguro{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    padding: 4rem 4rem;
+    background-color: var(--color--background--secundario);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.imagem-seguros {
+    text-align: center;
+}
+
+.imagem-seguros img {
+    max-width: 100%;
+    border-radius: 8px;
+    width: 38rem;
+    height: 38rem;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.conteudo-seguro {
+    max-width: 400px;
+    padding-left: 4rem;
+}
+
+/*----- porque contratar consorcio-----*/
+
+.porque-consorcio .container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+
+}
+
+/*----- o que dizem sobre nós-----*/
+.o-que-dizem .container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+}
+
+.cards-clientes {
+    display: flex;
+    gap: 2rem;
+    text-align: center;
+}
+
+.cards-clientes .card {
+    background-color: var(--color--white);
+    cursor: auto;
+}
+
+.cards-clientes .card img {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/*----- contato -----*/
+.contato .container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+}
+
+.botes-contato {
+    margin-top: 2rem;
+
+}
+
+.btn-contato {
+    
+    background-color: transparent;
+    border: 1px solid var(--color--titulo);
+    border-radius: 30px;
+    padding: 1rem;
+    align-items: center;
+}
+
+.btn-contato img {
+    width: 25px;
+    margin: auto;
+}
+
+.contat-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.contat-home h2 {
+    font-weight: 700;
+    width: 80%;
+}
+
+.input-box {
+    position: relative;
+    width: 80%;
+}
+
+.input-box span {
+    position: absolute;
+    left: 0;
+    padding: 1rem;
+    text-transform: uppercase;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.input-box input:valid~span,
+.input-box input:focus~span, .input-box select:valid~span,
+.input-box select:focus~span {
+    color: var(--color--titulo);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75rem;
+    padding: 0.1rem 1rem;
+    background-color: var(--color--secundaria);
+    border-left: 1px solid var(--color--secundaria);
+    border-radius: 4px;
+}
+
+.contat-home .btn-primario-form {
+    width: 80%;
+    margin: 0;
+}
+
+/* footer */
+footer {
+    background-color: var(--color--primaria);
+    color: var(--color--white);
+}
+
+footer .container {
+    display: flex;
+    color: white;
+    padding: 4rem;
+}
+
+footer .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+}
+
+footer .logo img {
+    width: 12rem;
+    margin-right: 6px;
+}
+
+footer .container ul {
+    width: 25%;
+    margin: 30px 30px;
+}
+
+footer .container h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--color--white);
+}
+footer p{
+    color: var(--color--white);
+}
+
+footer .container .redes-sociais {
+    display: flex;
+}
+
+footer .container .redes-sociais img {
+    margin-right: 10px;
+    width: 20px;
+
+}
+
+footer .container ul>p {
+    margin-bottom: 40px;
+}
+
+footer .container li {
+    margin: 10px;
+}
+
+footer .container a {
+    color: white;
+}
+
+/*----- Botão whats -----*/
+.whats{
+    width: 70px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    
+}
+.ani-whats{
+    position: relative;
+    
+}
+
+.ani-whats::before{
+    content: '';
+    right: 2px;
+    bottom: 7px;
+    background-color: none;
+    border: 1px solid var(--color--secundaria);
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    border-radius: 50%;
+    animation: alertabtn 1.3s ease-in-out infinite alternate;
+    z-index: -1;
+    
+}
+
+@keyframes alertabtn {
+    from {
+        transform: scale(1);
+        opacity: 0.2; 
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: 1; 
+    }
+    
+}
+/*----- Páginas internas -----*/
+
+.entre-em-contato{
+    background-color: var(--color--background--dark);
+    color: var(--color--white);
+   
+}
+.entre-em-contato .container{
+    width: 100%;
+    text-align: center;
+    
+}
+.entre-em-contato h2{
+    font-size: 20px;
+    font-weight: 500;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.entre-em-contato h2 span{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.entre-em-contato .container .btn-primario{
+    margin: auto;
+    text-align: center;
+}
+
+/*================= Media Queries tablete ========*/
+
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 4rem 2rem;
+
+    }
+
+    .menu-lista {
+        padding-right: 0;
+    }
+
+    .btn-contato-topo {
+        position: static;
+        right: 150px;
+        background-color: var(--color--primaria);
+        backdrop-filter: none;
+    }
+
+    .hero {
+        grid-template-columns: 50% 50%;
+
+    }
+  
+    
+
+    .imagem-hero img {
+        width: 100%;
+        height: 100%;
+        position: static;
+    }
+
+    .logo-parceiros img {
+        max-width: 130px;
+    }
+
+    .imagem-como-funciona img {
+
+        padding-right: 2rem;
+        width: 100%;
+        height: 100%;
+        position: static;
+        margin-left: 2rem;
+    }
+}
+
+/*================= Media Queries tablete pequeno ========*/
+@media screen and (max-width: 1200px) {
+    nav {
+        transition: none;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding: 1rem 1rem;
+    }
+
+    nav.ativo {
+        background-color: var(--color--background);
+        padding: 1rem 1rem;
+    }
+
+    .hamburguer {
+        display: block;
+    }
+
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+        color: #D8930D;
+    }
+
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: #D8930D;
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: #D8930D;
+    }
+
+    .menu-lista {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color--background);
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: .40s;
+    }
+
+    .menu-lista.active {
+        left: 0;
+    }
+
+    .ul-menu {
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .ul-menu li {
+        font-size: 18px;
+    }
+}
+
+/*================= Media Queries mobile ========*/
+@media screen and (max-width: 820px) {
+    .container {
+        padding: 1rem;
+    }
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .texto-hero {
+        margin: auto;
+        max-width: 80%;
+        text-align: center;
+       margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .efeitobtn .btn-primario {
+        margin: auto;
+        padding: auto;
+        text-align: center;
+    }
+
+    .imagem-hero {
+        margin: auto;
+    }
+
+    .imagem-hero img {
+        height: 240px;
+        width: 800px;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    .nossos-produtos .container {
+        grid-template-columns: 1fr;
+    }
+    .cards-produtos {
+        gap: .5rem; 
+        padding: 0 1rem;  
+    }
+    .cards-produtos .card .sombra {
+        
+        background: var(--color--sobra--card2);
+        
+    }
+    .logo-parceiros {
+        margin: 2rem 0;
+    }
+
+    .logo-parceiros img {
+        max-width: 80px;
+    }
+
+    .como-funciona .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .imagem-como-funciona img {
+        display: none;
+    }
+    .porque-seguro .container {
+        padding: 4rem 0rem;
+     
+     }
+    
+    .fundo-seguro{
+        grid-template-columns: 1fr;
+        background-color: var(--color--background--secundario);
+        border-radius: 0px;
+    }
+
+
+    .imagem-seguros img {
+        
+        height: 240px;
+        width: 800px;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    .porque-consorcio .container {
+        grid-template-columns: 1fr;
+    }
+   .conteudo-seguro{
+        order: 1;
+        text-align: center;
+        max-width: 80%;
+        padding-left: 0;
+       margin: auto; 
+    }
+    .conteudo-seguro p{
+        margin-bottom: 2rem;
+    }
+
+    .txt-produtos {
+        margin: auto;
+        max-width: 80%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .txt-produtos h2 {
+        margin-bottom: 1rem;
+        font-size: 36px;
+        font-weight: 500;
+    }
+    .txt-produtos p {
+        margin-bottom: 2rem;
+    }
+    .container-parceiros {
+        padding: 0 1rem;
+        padding-bottom: 0rem;
+    }
+    .o-que-dizem .container {
+        grid-template-columns: 1fr;
+    }
+    .cards-clientes {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .cards-clientes .card {
+        background-color: var(--color--white);
+    }
+    
+    .cards-clientes .card img {
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    .contato .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+
+    .contato .conteudo{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .contat-home{
+        width: 100%;
+    }
+
+    .contat-home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 ;
+    }
+    footer .container {
+
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    footer .container ul {
+        width: 100%;
+        margin: 30px 30px;
+
+    }
+    
+}
