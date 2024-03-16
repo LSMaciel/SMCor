@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        main {
+            width: 100%;
+            text-align: center;
+            display: flex;
+
+        }
+        img{
+            width: 100px;
+        }
+        .scroller {
+            
+            max-width: 800px;
+            outline: 3px solid lime;
+            margin: 8rem;
+            overflow: hidden;
+        }
+
+        .scroller__inner {
+            padding-block: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .scroller[data-animated="true"]{
+            border: 5px solid lime;
+            overflow: hidden;
+           /*-webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);*/
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        }
+
+        .scroller[data-animated="true"] .scroller__inner {
+            width: max-content;
+            flex-wrap: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            to{
+                transform: translate(calc(-50% - 0.5rem));
+            }
+            
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="scroller">
+            <ul class="tag-list scroller__inner">
+                <li><img src="assets/LogoParceiros/image 40.svg" alt=""></li>
+                <li><img src="assets/LogoParceiros/image 41.svg" alt=""></li>
+                <li><img src="assets/LogoParceiros/image 42.svg" alt=""></li>
+                <li><img src="assets/LogoParceiros/image 43.svg" alt=""></li>
+                <li><img src="assets/LogoParceiros/image 44.svg" alt=""></li>
+                
+            </ul>
+        </div>
+    </main>
+</body>
+<link rel="stylesheet" href="CSS/Style.css">
+
+<script>
+    const scrollers = document.querySelectorAll('.scroller')
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        addAnimation();
+    }
+    function addAnimation(){
+        scrollers.forEach((scroller)=> {
+            scroller.setAttribute("data-animated", true);
+
+            const scrollerInner = scroller.querySelector('.scroller__inner');
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden",true);
+                scrollerInner.appendChild(duplicatedItem)
+                
+            })
+        })
+    }
+
+</script>
+
+</html>
